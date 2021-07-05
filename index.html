@@ -7,7 +7,6 @@
       name="viewport"
       content="width=device-width, initial-scale=1, shrink-to-fit=no"
     />
-
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
@@ -20,33 +19,183 @@
       crossorigin="anonymous"
     ></script>
 
-    <style></style>
+    <style>
+      .header{
+        background-color: rgb(238, 238, 238);
+        padding:10px;
+        margin: 30px auto;
+        border-radius: 5px;
+      }
+      .header h1{
+        font-size: 22px;
+        display:flex;
+        align-items: center;
+        margin:0;
+      }
+      .header h1 i{
+        margin: 0 10px;
+      }
+      .checkbox-area{}
+      .checkbox-area ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .checkbox-area ul li {
+          margin-bottom: 15px;
+      }
+
+      .custom-btn{
+        cursor:pointer;
+      }
+
+      /* Checkbox Design */
+      /* The container */
+      .checkbox-container {
+          display: flex;
+          position: relative;
+          padding-left: 25px;
+          margin-bottom: unset;
+          cursor: pointer;
+          font-size: 16px;
+          -webkit-user-select: none;
+          -moz-user-select: none;
+          -ms-user-select: none;
+          user-select: none;
+          align-items: center;
+      }
+
+      /* Hide the browser's default checkbox */
+      .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+      }
+
+      /* Create a custom checkbox */
+      .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 20px;
+        width: 20px;
+        background-color: #eee;
+      }
+
+      /* On mouse-over, add a grey background color */
+      .checkbox-container:hover input ~ .checkmark {
+        background-color: #ccc;
+      }
+
+      /* When the checkbox is checked, add a blue background */
+      .checkbox-container input:checked ~ .checkmark {
+        background-color: #2196F3;
+      }
+
+      /* Create the checkmark/indicator (hidden when not checked) */
+      .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+      }
+
+      /* Show the checkmark when checked */
+      .checkbox-container input:checked ~ .checkmark:after {
+        display: block;
+      }
+
+      /* Style the checkmark/indicator */
+      .checkbox-container .checkmark:after {
+        left: 7px;
+        top: 1px;
+        width: 8px;
+        height: 15px;
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+      }
+</style>
 
     <title>Sent Notification</title>
   </head>
   <body>
     <div class="container">
+      <!-- Header -->
       <div class="header">
-        <h1><i class="far fa-bell"></i> Sent Notification</h1>
+        <h1><i class="far fa-bell text-primary"></i> Sent Notification</h1>
       </div>
-    </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"
-    ></script>
+       <!-- Checkbox Area -->
+       <div class="checkbox-area">
+        <ul class="row">
+          <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <label class="checkbox-container">
+              <input type="checkbox" name="notification" value="First Notification">
+              <span class="checkmark"></span>
+              The Notification Number 1
+            </label>
+          </li>
+
+          <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <label class="checkbox-container">
+              <input type="checkbox" name="notification" value="the Second Notification">
+              <span class="checkmark"></span>
+              Notification 2
+            </label>
+          </li>
+
+          <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <label class="checkbox-container">
+              <input type="checkbox" name="notification" value="the Third Notification">
+              <span class="checkmark"></span>
+              Notify 3
+            </label>
+          </li>
+
+          <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <label class="checkbox-container">
+              <input type="checkbox" name="notification" value="Fourth">
+              <span class="checkmark"></span>
+              Notification Type 4
+            </label>
+          </li>
+
+          <li class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+            <label class="checkbox-container">
+              <input type="checkbox" name="notification" value="Fifth final Notification">
+              <span class="checkmark"></span>
+              Notification Type 5
+            </label>
+          </li>
+        </ul>
+        <button class="btn btn-primary custom-btn" onclick="handleCheckbox()"><i class="fas fa-paper-plane "></i> Sent Notification</button>
+       </div>
+    </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script>
+    //After clicking on the button this function will trigger
+    const handleCheckbox=()=>{
+      const selectedNotification=[];
+      $("input:checkbox[name=notification]:checked").each(function(){
+        selectedNotification.push($(this).val());
+      });
+      //validation, its optional
+      if(selectedNotification.length>0){
+        //Here is the ready data
+        console.log(selectedNotification);
+      }else{
+        alert('You did not select any checkbox!');
+      }
+      
+    }
+
+   </script>
+
+
   </body>
 </html>
