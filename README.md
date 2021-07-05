@@ -1,4 +1,4 @@
-# Select notification and Sending one or many notifications at a time
+# Sending one or many notifications | HTML, CSS, Vanilla JS
 
 ## Features
 
