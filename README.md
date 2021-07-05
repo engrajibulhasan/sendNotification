@@ -5,3 +5,5 @@
 - All notification checkbox will appear from fake data
 - User can select one or many by checking them
 - after clicking on "sent notification" the selected notification will show in console as a object
+
+[Visit Demo](https://engrajibulhasan.github.io/sendNotification/index.html)
